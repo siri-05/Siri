@@ -41,11 +41,12 @@ public class Project_Controller {
 		return studentRepository.save(std);
 	}
 	
-	@PutMapping("/student/{id}")
+	@PutMapping("/student/{student_ID}")
 	public ResponseEntity<Student> updateStudent(@PathVariable Long student_ID,@RequestBody Student std) {
 		Student std2=studentRepository.findById(student_ID).orElseThrow(()->new StudentNotFoundException("Student ID is not found!!!"));
 		std2.setAdmission_no(std.getAdmission_no());
 		std2.setAdmission_date(std.getAdmission_date());
+		std2.setGuardianName(std.getGuardianName());
 		std2.setFirstName(std.getFirstName());
 		std2.setLastName(std.getLastName());
 		std2.setBatch(std.getBatch());
@@ -57,6 +58,7 @@ public class Project_Controller {
 		std2.setEmail_ID(std.getEmail_ID());
 		std2.setCurrent_Address(std.getCurrent_Address());
 		std2.setPermanent_Address(std.getPermanent_Address());
+		std2.setAttendence(std.getAttendence());
 		studentRepository.save(std2);
 		return ResponseEntity.ok(std2);
 	}
