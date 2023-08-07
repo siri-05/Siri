@@ -1,0 +1,13 @@
+.outer {
+    margin-left: 4%;
+    margin-right: 4%;
+}
+
+.inner {
+    width: 50%;
+}
+
+button {
+    height: 2.7rem;
+    width: 40%;
+}

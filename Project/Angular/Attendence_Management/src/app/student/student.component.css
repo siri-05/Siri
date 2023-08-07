@@ -1,0 +1,28 @@
+table {
+    text-align: left;
+    position: relative;
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+td {
+    width: 5%;
+    padding-left: 15px;
+}
+
+.row1 {
+    background-color: midnightblue;
+    color: white;
+    height: 3rem;
+    font-size: 17px;
+}
+
+.row2 {
+    background-color: aliceblue;
+    height: 2.8rem;
+}
+
+button {
+    height: 2rem;
+}

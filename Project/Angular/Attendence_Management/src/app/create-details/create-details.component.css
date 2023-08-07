@@ -1,0 +1,45 @@
+form {
+  background-color: aliceblue;
+  width: 65%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.left {
+  width: 75%;
+  margin-left: 20%;
+  margin-right: 5%;
+}
+
+.right {
+  width: 75%;
+  margin-left: 5%;
+  margin-right: 20%;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input, select, textarea, label {
+  color: blue;
+}
+
+input[type=number], input[type=text], input[type=date], input[type=email], .form-check, select, textarea {
+  height: 3.2rem;
+}
+
+input:focus, select:focus, textarea:focus {
+  box-shadow: none;
+}
+
+.valid {
+  text-align: left;
+  font-size: 12px;
+}
+
+button {
+  width: 15%;
+}

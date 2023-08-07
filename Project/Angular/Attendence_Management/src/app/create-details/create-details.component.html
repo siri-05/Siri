@@ -1,0 +1,202 @@
+<div class="text-center con">
+    <h2>ENTER STUDENT DEATILS</h2>
+    <form [formGroup]="student_Form" class="row py-4 rounded-4" (ngSubmit)="onSubmit()">
+        <div class="col-6 my-2">
+            <div class="form-floating left">
+                <input type="number" name="admNo" id="floatingAdmNo" class="form-control" formControlName="admNo"
+                    placeholder="Admission Number" [(ngModel)]="student.admission_no">
+                <label class="m-0 border-0" for="floatingAdmNo">Admission Number</label>
+                <div class="valid text-danger" *ngIf="adm_No.invalid && (adm_No.dirty || adm_No.touched)">
+                    <div *ngIf="adm_No.errors?.['required']">This field is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 my-2">
+            <div class="form-floating right">
+                <input type="date" name="admDate" id="floatingAdmDate" class="form-control" formControlName="admDate"
+                    placeholder="Admission Date" [(ngModel)]="student.admission_date">
+                <label for="floatingAdmNo">Admission Date</label>
+                <div class="valid text-danger" *ngIf="adm_Date.invalid && (adm_Date.dirty || adm_Date.touched)">
+                    <div *ngIf="adm_Date.errors?.['required']">This field is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 my-2">
+            <div class="form-floating left">
+                <input type="number" name="stdId" id="floatingStdId" class="form-control" formControlName="stdId"
+                    placeholder="Student ID" [(ngModel)]="student.student_ID">
+                <label for="floatingStdId">Student ID</label>
+                <div class="valid text-danger" *ngIf="std_Id.invalid && (std_Id.dirty || std_Id.touched)">
+                    <div *ngIf="std_Id.errors?.['required']">This field is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 my-2">
+            <div class="form-floating right">
+                <input type="text" name="gName" id="floatingGName" class="form-control" placeholder="Guardian Name"
+                    formControlName="gName" [(ngModel)]="student.guardianName">
+                <label for="floatingGName">Guardian Name</label>
+                <div class="valid text-danger" *ngIf="g_Name.invalid && (g_Name.dirty || g_Name.touched)">
+                    <div *ngIf="g_Name.errors?.['required']">This field is required</div>
+                    <div *ngIf="g_Name.errors?.['pattern']">Should not contain numbers or any
+                        special characters</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 my-2">
+            <div class="form-floating left">
+                <input type="text" name="fName" id="floatingFName" class="form-control" placeholder="First Name"
+                    formControlName="fName" [(ngModel)]="student.firstName">
+                <label for="floatingFName">First Name</label>
+                <div class="valid text-danger" *ngIf="f_Name.invalid && (f_Name.dirty || f_Name.touched)">
+                    <div *ngIf="f_Name.errors?.['required']">This field is required</div>
+                    <div *ngIf="f_Name.errors?.['pattern']">Should not contain numbers or any
+                        special characters</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 my-2">
+            <div class="form-floating right">
+                <input type="text" name="lName" id="floatingLName" class="form-control" placeholder="Last Name"
+                    formControlName="lName" [(ngModel)]="student.lastName">
+                <label for="floatingLName">Last Name</label>
+                <div class="valid text-danger" *ngIf="l_Name.invalid && (l_Name.dirty || l_Name.touched)">
+                    <div *ngIf="l_Name.errors?.['required']">This field is required</div>
+                    <div *ngIf="l_Name.errors?.['pattern']">Should not contain numbers or any
+                        special characters</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 my-2">
+            <div class="form-floating left">
+                <input type="date" name="dob" id="floatingDOB" class="form-control" placeholder="Date of Birth"
+                    formControlName="dob" [(ngModel)]="student.dob">
+                <label for="floatingDOB">Date of Birth</label>
+                <div class="valid text-danger" *ngIf="d_o_b.invalid && (d_o_b.dirty || d_o_b.touched)">
+                    <div *ngIf="d_o_b.errors?.['required']">This field is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 my-2">
+            <div class="right pt-3">
+                <label class="me-3 pe-3">Gender</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" formControlName="gender"
+                        [(ngModel)]="student.gender" value="Female">Female
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" formControlName="gender"
+                        [(ngModel)]="student.gender" value="Male">Male
+                </div>
+                <div class="valid text-danger" *ngIf="gender_.invalid && (gender_.dirty || gender_.touched)">
+                    <div *ngIf="gender_.errors?.['required']">This field is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 my-2">
+            <div class="form-floating left">
+                <select name="major" id="floatingMajor" class="form-select" formControlName="major"
+                    [(ngModel)]="student.major">
+                    <option selected disabled></option>
+                    <option>BE</option>
+                    <option>BTech</option>
+                </select>
+                <label for="floatingMajor">Major</label>
+                <div class="valid text-danger" *ngIf="major_.invalid && (major_.dirty || major_.touched)">
+                    <div *ngIf="major_.errors?.['required']">This field is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 my-2">
+            <div class="form-floating right">
+                <select name="branch" id="floatingBranch" class="form-select" formControlName="branch"
+                    [(ngModel)]="student.branch">
+                    <option selected disabled></option>
+                    <option>CSE</option>
+                    <option>ECE</option>
+                    <option>EEE</option>
+                    <option>IT</option>
+                    <option>MECH</option>
+                    <option>CIVIL</option>
+                </select>
+                <label for="floatingBranch">Branch</label>
+                <div class="valid text-danger" *ngIf="branch_.invalid && (branch_.dirty || branch_.touched)">
+                    <div *ngIf="branch_.errors?.['required']">This field is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 my-2">
+            <div class="form-floating left">
+                <select name="batch" id="floatingBatch" class="form-select" formControlName="batch"
+                    [(ngModel)]="student.batch">
+                    <option selected disabled></option>
+                    <option>2016-2020</option>
+                    <option>2017-2021</option>
+                    <option>2018-2022</option>
+                    <option>2019-2023</option>
+                </select>
+                <label for="floatingBatch">Choose Batch</label>
+                <div class="valid text-danger" *ngIf="batch_.invalid && (batch_.dirty || batch_.touched)">
+                    <div *ngIf="batch_.errors?.['required']">This field is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 my-2">
+            <div class="form-floating right">
+                <input type="number" name="attendence" id="floatingAttendence" class="form-control"
+                    formControlName="attendence" placeholder="Attendence" [(ngModel)]="student.attendence">
+                <label for="floatingAttendence">Attendence</label>
+            </div>
+        </div>
+        <div class="col-6 my-2">
+            <div class="form-floating left">
+                <input type="text" name="mobile" id="floatingMobile" class="form-control" placeholder="Phone Number"
+                    formControlName="mobile" [(ngModel)]="student.mobile">
+                <label for="floatingMobile">Phone Number</label>
+                <div class="valid text-danger" *ngIf="mobile_.invalid && (mobile_.dirty || mobile_.touched)">
+                    <div *ngIf="mobile_.errors?.['required']">This field is required</div>
+                    <div *ngIf="mobile_.errors?.['pattern']">Invalid Mobile Number</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 my-2">
+            <div class="form-floating right">
+                <input type="email" name="email" id="floatingEmail" class="form-control" placeholder="Email ID"
+                    formControlName="email" [(ngModel)]="student.email_ID">
+                <label for="floatingEmail">Email ID</label>
+                <div class="valid text-danger" *ngIf="email_.invalid && (email_.dirty || email_.touched)">
+                    <div *ngIf="email_.errors?.['required']">This field is required</div>
+                    <div *ngIf="email_.errors?.['pattern']">Invalid Email ID</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 my-2">
+            <div class="form-floating left">
+                <textarea name="curAddress" id="floatingCurAddress" class="form-control"
+                    placeholder="Enter Current Address" formControlName="curAddress"
+                    [(ngModel)]="student.current_Address"></textarea>
+                <label for="floatingCurAddress">Enter Current Address</label>
+                <div class="valid text-danger"
+                    *ngIf="cur_Address.invalid && (cur_Address.dirty || cur_Address.touched)">
+                    <div *ngIf="cur_Address.errors?.['required']">This field is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 my-2">
+            <div class="form-floating right">
+                <textarea name="perAddress" id="floatingPerAddress" class="form-control"
+                    placeholder="Enter Permanent Address" formControlName="perAddress"
+                    [(ngModel)]="student.permanent_Address"></textarea>
+                <label for="floatingPerAddress">Enter Permanent Address</label>
+                <div class="valid text-danger"
+                    *ngIf="per_Address.invalid && (per_Address.dirty || per_Address.touched)">
+                    <div *ngIf="per_Address.errors?.['required']">This field is required</div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+            <button [disabled]="student_Form.invalid" type="submit"
+                class="btn btn-primary fw-semibold mt-5">SUBMIT</button>
+        </div>
+    </form>
+</div>
